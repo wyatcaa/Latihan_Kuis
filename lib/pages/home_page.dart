@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latkuis_124230037/models/movie_data.dart';
 import 'package:latkuis_124230037/pages/detail_page.dart';
+import 'package:latkuis_124230037/pages/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -207,6 +208,20 @@ class HomePage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+         actions: [
+          IconButton(
+            onPressed: (){
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context){
+                  return LoginPage();
+                }),
+                (route)=> false);
+            },
+            icon: Icon(Icons.logout_outlined, 
+              color: const Color(0xFF233D4D),)),
+          
+        ],
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(12),
