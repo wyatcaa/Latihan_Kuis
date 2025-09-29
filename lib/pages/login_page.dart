@@ -26,10 +26,8 @@ class _LoginPageState extends State<LoginPage> {
         errorMessage = "";
       });
       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(username: username),
-        ),
+        context, 
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } else {
       setState(() {
