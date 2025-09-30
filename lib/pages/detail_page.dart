@@ -9,7 +9,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final movie = movieList[index]; // ambil data movie
+    final movie = movieList[index]; 
 
     return Scaffold(
       appBar: AppBar(
@@ -23,60 +23,58 @@ class DetailPage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 12),
-
-            // Gambar Poster
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-                child: Image.network(
-                  movie.imgUrl,
-                  width: double.infinity,
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            // Detail Teks
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    movie.title,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF233D4D),
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.network(
+                    movie.imgUrl,
+                    width: 120,
+                    height: 180,
+                    fit: BoxFit.cover,
                   ),
-                  const SizedBox(height: 8),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        movie.genre,
+                        movie.title,
                         style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF233D4D),
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
+                      const SizedBox(height: 5),
+                      Text(
+                        movie.synopsis,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF233D4D),
+                          height: 1.5,
+                        ),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.justify,
+                      ),
+                      const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Icon(Icons.star,
-                              color: Colors.amber, size: 20),
+                          const Icon(Icons.star, color: Colors.amber, size: 18),
                           const SizedBox(width: 4),
                           Text(
-                            movie.rating.toString(),
+                            movie.rating.toStringAsFixed(1), //satu angka belakang koma
                             style: const TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -84,65 +82,148 @@ class DetailPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                ),
+              ],
+            ),
 
-                  Text(
-                    movie.synopsis,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      height: 1.5,
-                      color: Color(0xFF233D4D),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-
-                  Text(
-                    "Director: ${movie.director}",
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF233D4D),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-
-                  // Tombol untuk buka Movie URL
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFFE7F2D),
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+            const SizedBox(height: 24),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 80,
+                      child: const Text(
+                        "Director",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xFF233D4D),
                         ),
                       ),
-                      icon: const Icon(Icons.link),
-                      label: const Text(
-                        "More Information",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      onPressed: () async {
-                        final Uri url = Uri.parse(movie.movieUrl);
-
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(
-                            url,
-                            mode: LaunchMode.externalApplication,
-                          );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Tidak bisa membuka URL"),
-                            ),
-                          );
-                        }
-                      },
                     ),
+                    Expanded(
+                      child: Text(
+                        movie.director,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFFFE7F2D),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 80,
+                      child: const Text(
+                        "Cast",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xFF233D4D),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        movie.casts.join(', '),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFFFE7F2D),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 80,
+                      child: const Text(
+                        "Year",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xFF233D4D),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        movie.year.toString(),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFFFE7F2D),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+
+                const Text(
+                  "Synopsis",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF233D4D),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  movie.synopsis,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    height: 1.5,
+                    color: Color(0xFF233D4D),
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 24),
+
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFFE7F2D),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    icon: const Icon(Icons.link),
+                    label: const Text(
+                      "More Information",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onPressed: () async {
+                      final Uri url = Uri.parse(movie.movieUrl);
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Tidak bisa membuka URL"),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),
