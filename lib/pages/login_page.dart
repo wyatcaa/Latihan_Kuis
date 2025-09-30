@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
     String password = passwordC.text;
     String text = "";
 
-    if (username == "wulan" && password == '123') {
+    if (password == '123') {
       setState(() {
         text = "Login Berhasil";
         isLoginSuccess = true;
@@ -27,7 +27,9 @@ class _LoginPageState extends State<LoginPage> {
       });
       Navigator.pushReplacement(
         context, 
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context){
+          return HomePage(username: username,);
+        }),
       );
     } else {
       setState(() {
