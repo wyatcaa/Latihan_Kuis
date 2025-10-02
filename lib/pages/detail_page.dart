@@ -13,11 +13,11 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFE7F2D),
+        backgroundColor: const Color(0xFFD7263D),
         title: Text(
           movie.title,
           style: const TextStyle(
-            color: Color(0xFF233D4D),
+            color: Color(0xFF02182B),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -49,7 +49,7 @@ class DetailPage extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF233D4D),
+                          color: Colors.white,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -59,7 +59,7 @@ class DetailPage extends StatelessWidget {
                         movie.synopsis,
                         style: const TextStyle(
                           fontSize: 14,
-                          color: Color(0xFF233D4D),
+                          color: Colors.white,
                           height: 1.5,
                         ),
                         maxLines: 3,
@@ -76,6 +76,7 @@ class DetailPage extends StatelessWidget {
                             style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
+                              color: Colors.white
                             ),
                           ),
                         ],
@@ -100,7 +101,7 @@ class DetailPage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Color(0xFF233D4D),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -109,7 +110,7 @@ class DetailPage extends StatelessWidget {
                         movie.director,
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Color(0xFFFE7F2D),
+                          color: Color(0xFFD7263D),
                         ),
                       ),
                     ),
@@ -127,7 +128,7 @@ class DetailPage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Color(0xFF233D4D),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -136,7 +137,7 @@ class DetailPage extends StatelessWidget {
                         movie.casts.join(', '),
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Color(0xFFFE7F2D),
+                          color: Color(0xFFD7263D),
                         ),
                       ),
                     ),
@@ -153,7 +154,7 @@ class DetailPage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Color(0xFF233D4D),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -162,7 +163,7 @@ class DetailPage extends StatelessWidget {
                         movie.year.toString(),
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Color(0xFFFE7F2D),
+                          color: Color(0xFFD7263D),
                         ),
                       ),
                     ),
@@ -175,7 +176,7 @@ class DetailPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF233D4D),
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -184,7 +185,7 @@ class DetailPage extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     height: 1.5,
-                    color: Color(0xFF233D4D),
+                    color: Colors.white,
                   ),
                   textAlign: TextAlign.justify,
                 ),
@@ -194,7 +195,7 @@ class DetailPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFE7F2D),
+                      backgroundColor: const Color(0xFFD7263D),
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(

@@ -50,16 +50,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAF9F6), 
+      backgroundColor: const Color(0xFF02182B), 
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Card(
+            color: Color(0xFF0D2538),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            shadowColor: const Color(0xFF233D4D),
-            elevation: 8,
+            shadowColor: Color(0xFFD7263D),
+            elevation: 5,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -76,83 +77,93 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   const Icon(
-                    Icons.pets,
+                    Icons.movie,
                     size: 80,
-                    color: const Color(0xFFFE7F2D), 
+                    color: Color(0xFFD7263D), 
                   ),
                   const SizedBox(height: 10),
                   const Text(
                     "Login",
                     style: TextStyle(
                       fontSize: 25,
-                      color: const Color(0xFF233D4D), 
+                      color: Colors.white70, 
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 15),
                   TextField(
                     controller: usernameC,
+                    style: const TextStyle(
+                      color: Colors.white, 
+                    ),
                     decoration: InputDecoration(
                       labelText: 'Username',
-                      prefixIcon: Icon(Icons.person_2_outlined),
+                      prefixIcon: Icon(Icons.person_2_outlined, color: Colors.white70,),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                       enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(
-                        color: Colors.grey, 
+                        color: Colors.white70, 
                         width: 1.5,
                         ),
                       ),
+                      labelStyle: const TextStyle(color: Colors.white70),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
-                          color: const Color(0xFFFE7F2D), 
+                          color: const Color(0xFFD7263D), 
                           width: 2,
                         ),
                       ),
                       floatingLabelStyle: TextStyle(
-                        color: const Color(0xFF233D4D), 
+                        color: Colors.white70, 
                       ),
                     ),
                   ),
                   const SizedBox(height: 12),
                   TextField(
                     controller: passwordC,
+                    style: const TextStyle(
+                      color: Colors.white, 
+                    ),
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      prefixIcon: Icon(Icons.lock_outline),
-                      suffix: Icon(Icons.remove_red_eye_outlined),
+                      prefixIcon: Icon(Icons.lock_outline, color: Colors.white70),
+                      suffix: Icon(Icons.remove_red_eye_outlined, color: Colors.white70),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                       enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(
-                        color: Colors.grey, 
+                        color: Colors.white70, 
                         width: 1.5,
                         ),
                       ),
+                      labelStyle: const TextStyle(color: Colors.white70),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
-                          color: const Color(0xFFFE7F2D), 
+                          color: const Color(0xFFD7263D), 
                           width: 2,
                         ),
                       ),
                       floatingLabelStyle: TextStyle(
-                        color: const Color(0xFF233D4D), 
+                        color: Colors.white70, 
                       ),
+                      
                     ),
+                    
                     
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: const Color(0xFFFE7F2D),
+                      backgroundColor: const Color(0xFFD7263D),
                       minimumSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),

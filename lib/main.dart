@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Latihan Kuis',
       theme: ThemeData(
-          primaryColor: const Color(0xFFFE7F2D), 
-          scaffoldBackgroundColor: const Color(0xFFFAF9F6), 
+          primaryColor: const Color(0xFFD7263D), 
+          scaffoldBackgroundColor: const Color(0xFF02182B), 
           textTheme: const TextTheme(
-            bodyMedium: TextStyle(color: Color(0xFF233D4D)), 
+            bodyMedium: TextStyle(color: Color(0xFFD7263D)), 
           ),
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            secondary: const Color(0xFF233D4D), 
+            secondary: const Color(0xFF02182B), 
           ),
         ),
       home: LoginPage(),
